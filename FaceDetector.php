@@ -62,7 +62,7 @@ class FaceDetector
 		$s = $xml->getElementsByTagName("size")->item(0);
 		echo trim($s->nodeValue);
 		$this->classifierSize = explode(" ", trim($s->nodeValue));
-		var_dump($this->classifierSize[0]);
+		var_dump($this->classifierSize);
 		$this->stages = array();
 		
 		$stagesNode = $xml->getElementsByTagName("stages");
@@ -407,7 +407,7 @@ class Feature
 		$w = (int)($scale*$this->size[0]);
 		$h = (int)($scale*$this->size[1]);
 		$inv_area = 1/($w*$h);
-
+		echo $i." ".$w." ".$j." ".$h."<br>";
 		$total_x = $grayImage[$i+$w][$j+$h] + $grayImage[$i][$j] - $grayImage[$i][$j+$h] - $grayImage[$i+$w][$j];
 		$total_x2 = $squares[$i+$w][$j+$h] + $squares[$i][$j] - $squares[$i][$j+$h] - $squares[$i+$w][$j];
 		
